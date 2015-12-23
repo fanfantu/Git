@@ -72,8 +72,7 @@ git checkout -b dev  --创建并切换分支
 git branch           --查看当前的分支
 git checkout 命令加上 –b参数表示创建并切换，相当于如下2条命令
 git branch dev ,git checkout dev
-git branch命令会列出所有分支，当前分支前面会标一个*号。当我们对一个apple.html文件进行修改，然后通过$git add apple.html,$git commit -m "branch test"完成dev分支的工作，通过$git checkout master来切回到主分支，在查看刚才更改的apple.html发现更改的内容没了，感觉很费劲吧，明明改动了却没有变化。因为刚才那个提交是在dev分支上，并没有在master主分支进行更改。想要让主分支的也改动应该怎么办呢，我们来合并分支，把dev上更改的文件来合并到master分支上。通过$git merge dev，git merge命令用于合并分支到当前所在的分支，这事我们更改的文件在master上就更改了。之后可以删除dev分支，通过$git branch -d dev。
-我刚开始用的时候遇到的最大问题就是合并冲突，什么是合并冲突呢，我的理解就是当一个文件在分支上进行改动了，主分支上也进行改动了，都有各自新的提交。这时git无法执行“快速合并”，试图把分支和主分支上修改的合并起来，但是会产生合并冲突，必须我们手动来解决，git用<<<<<<<，=======，>>>>>>>标记不同分支的内容，我们修改后保存。之后在git add,git commit.
+git branch命令会列出所有分支，当前分支前面会标一个*号。
 ###替换本地改动
 假如你做错事（自然，这是不可能的），你可以使用如下命令替换掉本地改动：
 git checkout -- <filename>
