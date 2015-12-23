@@ -73,6 +73,28 @@ git branch           --查看当前的分支
 git checkout 命令加上 –b参数表示创建并切换，相当于如下2条命令
 git branch dev ,git checkout dev
 git branch命令会列出所有分支，当前分支前面会标一个*号。
+我最初经常遇到的问题就是分支冲突，觉得很坑，下面我们就来看看分支冲突是怎么回事
+首先创建一个新的分支new
+
+![Mou icon](img/chong_1.png)
+
+这时在new分支上，对README文件进行修改,在new分支上提交.
+
+![Mou icon](img/chong_2.png)
+
+之后切换到master主分支上，在对README进行修改,提交
+
+![Mou icon](img/chong_3.png)
+这时主分支和new都分别有了提交，这种情况下git无法快速合并，只能把各自的修改合并起来，这样会导致分支冲突
+
+![Mou icon](img/chong_4.png)
+
+我看可以直接查看文件的内容，进行手动修改
+
+![Mou icon](img/chong_5.png)
+
+Git用<<<<<<<，=======，>>>>>>>标记出不同分支的内容，之后在进行git add,git commit来提交。
+
 ###替换本地改动
 假如你做错事（自然，这是不可能的），你可以使用如下命令替换掉本地改动：
 git checkout -- <filename>
